@@ -22,3 +22,304 @@
 
 
 <body>
+
+<div class="container">
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="header">
+
+        <h1>
+            แดชบอร์ดจำลองรายได้: เกษตร 1 ไร่
+        </h1>
+
+        <p>
+            ระบบปลูกพืช 3 ชนิด
+            • แปลง 10×10 แถว
+            • 100 ต้น/ไร่
+            • ส้มโอ, กล้วยหอมทอง, พริกขี้หนูสวน
+        </p>
+
+    </header>
+
+
+    <!-- =====================================================
+         SUMMARY CARDS
+         ===================================================== -->
+
+    <section class="summary-cards">
+
+
+        <!-- CARD 1 -->
+
+        <div class="summary-card blue-card">
+
+            <div class="card-title">
+                รายได้รวมในปีที่
+                <span id="cardYear">
+                    1
+                </span>
+            </div>
+
+            <div class="card-value"
+                 id="yearIncome">
+
+                60,400 ฿
+
+            </div>
+
+            <div class="card-unit">
+                บาท / ปี
+            </div>
+
+        </div>
+
+
+        <!-- CARD 2 -->
+
+        <div class="summary-card green-card">
+
+            <div class="card-title">
+
+                รายได้สะสม
+                (ปีที่ 1 ถึง
+                <span id="cardYear2">
+                    1
+                </span>)
+
+            </div>
+
+            <div class="card-value"
+                 id="cumIncome">
+
+                60,400 ฿
+
+            </div>
+
+            <div class="card-unit">
+                รวมทุกปี
+            </div>
+
+        </div>
+
+
+        <!-- CARD 3 -->
+
+        <div class="summary-card dark-card">
+
+            <div class="card-title">
+                ประมาณการรายได้รวม 10 ปี
+            </div>
+
+            <div class="card-value"
+                 id="tenYear">
+
+                1,204,000 ฿
+
+            </div>
+
+            <div class="card-unit">
+                อ้างอิง: กรณีฐาน
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-layout">
+
+
+        <!-- =================================================
+             LEFT PANEL
+             ================================================= -->
+
+        <section class="control-panel">
+
+            <h2>
+                แผงควบคุม &
+                โมเดลการเติบโต 10×10 แปลง
+            </h2>
+
+
+            <!-- SCENARIO -->
+
+            <div class="form-group">
+
+                <label for="scenario">
+                    1. เลือกกรณีราคา (Scenario)
+                </label>
+
+                <select id="scenario">
+
+                    <option value="base">
+                        กรณีราคาต่ำสุด
+                        (อ้างอิงข้อมูลล่าสุด)
+                    </option>
+
+                    <option value="normal">
+                        กรณีราคากลาง
+                    </option>
+
+                    <option value="high">
+                        กรณีราคาสูง
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- YEAR SLIDER -->
+
+            <div class="form-group">
+
+                <label>
+                    2. เลื่อนจำลองลำดับ
+                    การเติบโตตามปี
+                </label>
+
+
+                <div class="year-header">
+
+                    <span>
+                        ปีที่ 1–10
+                    </span>
+
+                    <strong>
+
+                        ปีที่
+                        <span id="yearText">
+                            1
+                        </span>
+
+                    </strong>
+
+                </div>
+
+
+                <input
+                    type="range"
+                    id="yearSlider"
+                    min="1"
+                    max="10"
+                    value="1"
+                >
+
+            </div>
+
+
+
+            <!-- FARM -->
+
+            <div class="farm-header">
+
+                <strong>
+                    แปลง 1 ไร่
+                </strong>
+
+                <span id="plantCount">
+                    100 ต้น
+                </span>
+
+            </div>
+
+
+            <!-- พื้นที่ 10 × 10 -->
+
+            <div
+                class="farm-grid"
+                id="farmGrid">
+            </div>
+
+
+            <!-- LEGEND -->
+
+            <div class="legend">
+
+                <div>
+                    <span class="legend-dot"></span>
+                    ต้นพืช
+                </div>
+
+                <div>
+                    คลิกที่ต้นเพื่อดูรายละเอียด
+                </div>
+
+            </div>
+
+
+            <!-- PLANT INFORMATION -->
+
+            <div
+                class="plant-info"
+                id="plantInfo">
+
+                <strong>
+                    ข้อมูลต้นพืช
+                </strong>
+
+                <br>
+
+                คลิกต้นพืชในแปลง
+                เพื่อดูรายละเอียด
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             RIGHT PANEL : GRAPH
+             ================================================= -->
+
+        <section class="chart-panel">
+
+            <h2>
+                แนวโน้มรายได้ 10 ปี (บาท)
+            </h2>
+
+
+            <div class="chart-container">
+
+                <svg
+                    id="incomeChart"
+                    viewBox="0 0 800 400">
+                </svg>
+
+            </div>
+
+
+            <div class="chart-note">
+
+                ตัวอย่างโมเดลเพื่อการวางแผน
+                รายได้จริงขึ้นอยู่กับผลผลิต
+                ราคาขาย ต้นทุน และปัจจัยการผลิต
+                ในแต่ละปี
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- เชื่อม JavaScript -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
